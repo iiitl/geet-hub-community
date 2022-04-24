@@ -1,13 +1,8 @@
 body{
   background-color: #C3E0E5;
 }
-
 .main {
   margin-top: 10em;
-}
-
-.nav{
-  background-color: aqua;
 }
 .center {
   justify-content: center;

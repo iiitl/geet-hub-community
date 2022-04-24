@@ -1,0 +1,46 @@
+body{
+  background-color: #C3E0E5;
+}
+
+.main {
+  margin-top: 10em;
+}
+
+.nav{
+  background-color: aqua;
+}
+.center {
+  justify-content: center;
+  padding: 10px;
+}
+
+.ui.search input {
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+.item {
+  padding: 15px 0px !important;
+}
+
+i.icon {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* shadow at hover at i.icon */
+i.icon:hover {
+  color: #5a5a5a;
+}
+
+a:hover{
+  text-decoration: underline;;
+}
+
+footer {
+  font-family: inherit;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}

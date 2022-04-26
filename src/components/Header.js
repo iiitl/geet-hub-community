@@ -11,7 +11,7 @@ const Header = () => {
           <div className="right menu">
             <div className="item">
               <a
-                href="https://github.com/PrerakMathur20/geet-hub-frontend"
+                href="https://github.com/PrerakMathur20/geet-hub-community"
                 className="item"
                 target="_blank"
                 rel="noopener noreferrer"

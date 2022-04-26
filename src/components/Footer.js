@@ -5,7 +5,7 @@ const Footer = () => {
 		<footer>
 			Licensed tool for {' '}
 			<a
-				href='https://geethub.netlify.app/hub'
+				href='https://geethub.netlify.app/'
 				target='_blank'
 				rel='noopener noreferrer'>
 				Geet-Hub

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/sharp-solid-svg-icons";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
 
   const [theme, setTheme] = useState("light-theme");
-  const [state,setState] = useState(false);
+  const [state, setState] = useState(false);
 
   const toggleTheme = () => {
     if (theme === "dark-theme") {
@@ -22,15 +24,13 @@ const Header = () => {
   }, [theme])
 
   return (
-
-
     <div className="nav">
       <div className="ui fixed menu">
         <div className="ui container center">
           <h2>Sun-Geet</h2>&nbsp;by{" "}
           <a href="https://geethub.netlify.app">Geet-Hub</a>
           <div className="right menu">
-            <a href="#" className="btn" onClick={() => toggleTheme()}>{state ? 'Light Mode' : 'Dark Mode' }</a>
+            <a href="#" className="btn" onClick={() => toggleTheme()}>{state ? <FontAwesomeIcon size="xl" icon={faSun} /> : <FontAwesomeIcon size="xl" icon={faMoon} />}</a>
             <div className="item">
               <a
                 href="https://github.com/PrerakMathur20/geet-hub-community"
@@ -41,7 +41,7 @@ const Header = () => {
                 <i className="github icon"></i>
                 Source Code
               </a>
-            </div>
+            </div>™
           </div>
         </div>
       </div>

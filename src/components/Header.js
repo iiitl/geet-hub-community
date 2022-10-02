@@ -30,8 +30,8 @@ const Header = () => {
           <h2>Sun-Geet</h2>&nbsp;by{" "}
           <a href="https://geethub.netlify.app">Geet-Hub</a>
           <div className="right menu">
-            <a href="#" className="btn" onClick={() => toggleTheme()}>{state ? <FontAwesomeIcon size="xl" icon={faSun} /> : <FontAwesomeIcon size="xl" icon={faMoon} />}</a>
             <div className="item">
+            <a href="#" className="btn" onClick={() => toggleTheme()}>{state ? <FontAwesomeIcon size="xl" icon={faSun}  /> : <FontAwesomeIcon size="xl" icon={faMoon} />}</a>
               <a
                 href="https://github.com/PrerakMathur20/geet-hub-community"
                 className="item"

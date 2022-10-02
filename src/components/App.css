@@ -87,3 +87,30 @@ footer {
   bottom: 2%;
   right: 2%;
 }
+
+.ui.menu.fixed .item:last-child {
+  margin-left: 15px;
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  margin-top: 6px;
+}
+
+.ui.menu .item:before{
+  margin-right: 15px;
+}
+
+.ui.menu .item:before{
+  /* visibility: hidden; */
+  margin-left:25px;
+}
+
+.ui.menu:after{
+  /* visibility: hidden; */
+  /* margin-right:25px; */
+}
+
+
+.ui.menu .item:before{
+  margin-right: -7px;
+}

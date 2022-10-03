@@ -1,5 +1,53 @@
+
+
+.light-theme{
+  --para-clr:rgb(32, 27, 27);
+  --btn-clr:blue;
+  --bg-clr:#C3E0E5;
+  --text-clr:black;
+  --bgui-clr:#C3E0E5;
+  --hover-clr:#5a5a5a;
+}
+
+.dark-theme{
+  --para-clr:rgb(0, 0, 0);
+  --btn-clr:blue;
+  --bg-clr:rgb(17, 9, 9);
+  --text-clr:rgb(255, 255, 255);
+  --bgui-clr:rgb(47, 45, 45);
+  --hover-clr:#fffb01;
+}
+
+.ui.form input[type=text]{
+  color: var(--para-clr);
+}
+
+p,h1,h2,label,footer{
+  color: var(--text-clr);
+}
+
+.item i,a.item{
+  color: var(--text-clr);
+}
+
+.ui.menu .item>a:not(.ui){
+  color: var(--text-clr);
+}
+
+.ui.menu>.container{
+  color: var(--text-clr);
+}
+
+.ui.form .field>label{
+  color: var(--text-clr);
+}
+
+.ui.fixed.menu{
+  background-color: var(--bg-clr);
+}
+
 body{
-  background-color: #C3E0E5;
+  background-color: var(--bgui-clr) ;
 }
 .main {
   margin-top: 10em;
@@ -26,7 +74,7 @@ i.icon {
 
 /* shadow at hover at i.icon */
 i.icon:hover {
-  color: #5a5a5a;
+  color: var(--hover-clr);
 }
 
 a:hover{
@@ -38,4 +86,31 @@ footer {
   position: fixed;
   bottom: 2%;
   right: 2%;
+}
+
+.ui.menu.fixed .item:last-child {
+  margin-left: 15px;
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  margin-top: 6px;
+}
+
+.ui.menu .item:before{
+  margin-right: 15px;
+}
+
+.ui.menu .item:before{
+  /* visibility: hidden; */
+  margin-left:25px;
+}
+
+.ui.menu:after{
+  /* visibility: hidden; */
+  /* margin-right:25px; */
+}
+
+
+.ui.menu .item:before{
+  margin-right: -7px;
 }

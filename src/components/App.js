@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import "./App.css";
 import Header from "./Header";
 import AddContact from "./AddContact";
@@ -7,31 +8,52 @@ import ContactList from "./ContactList";
 import Footer from "./Footer";
 
 function App() {
-  const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
 
-  const addContactHandler = (contact) => {
-    console.log(contact);
-    setContacts([...contacts, { id: uuid(), ...contact }]);
+  const addContactHandler = async(contact) => {
+    const id=uuidv4();
+    try{
+      setContacts([...contacts, {id:id,...contact} ]);
+      const msg=await axios.post('http://localhost:4000/addition',{
+        id:id,
+        title:contact.name,
+        genre:contact.contactnumber,
+        author:contact.email,
+        link:contact.link
+      });
+    }catch(err){
+      console.log(err.message);
+        alert('error');
+    }  
   };
 
-  const removeContactHandler = (id) => {
+  const removeContactHandler = async(id) => {
     const newContactList = contacts.filter((contact) => {
       return contact.id !== id;
     });
 
     setContacts(newContactList);
+    const deleting= await axios.put('http://localhost:4000/deletion',{
+      id:id
+    });
   };
-
-  useEffect(() => {
-    const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (retriveContacts) setContacts(retriveContacts);
+  
+  useEffect(() => { 
+    setContacts([]);
+    const contactobject=[];
+    const fetching=async ()=>{
+      const msg= await axios.get('http://localhost:4000/fetching');
+      msg.data.all[0].contractlist.map((contract,i)=>{
+          console.log(contract);
+          contactobject.push(contract);
+      })
+      setContacts(contactobject);
+    }
+    console.log(contactobject);
+    fetching();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
-
+  
   return (
     <div className="ui container">
       <Header />

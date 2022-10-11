@@ -2,15 +2,15 @@ import React from "react";
 import user from "../images/user.png";
 
 const ContactCard = (props) => {
-  const { id, name, email, contactnumber, link } = props.contact;
+  const { id, track, author, genre, link } = props.contact;
   return (
     <div className="item">
       <img className="ui avatar image" src={user} alt="user" />
       <div className="content">
-        <div className="header">{name}</div>
-        <div>Genre : {contactnumber}</div>
+        <div className="header">{track}</div>
+        <div>Genre : {genre}</div>
         <div>
-        Artist/Author Name : <a href={"mailto:" + email}>{email}</a>
+        Artist/Author Name : <a href={"mailto:" + author}>{author}</a>
         </div>
         <div>
           Link: <a href={link}> Click Here</a>

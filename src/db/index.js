@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const RateLimit = require('express-rate-limit');
 require("./conn");
 const app = express();
 app.use(cors());
@@ -7,6 +8,14 @@ const Port = process.env.PORT || 4000;
 const contract = require("./models/contacts");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+
+const limiter = RateLimit({
+  windowMs: 1*60*1000, 
+  max: 5
+});
+
+app.use(limiter);
 
 app.post('/addition',async (req,res)=>{
     try{

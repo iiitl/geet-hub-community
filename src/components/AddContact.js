@@ -1,64 +1,64 @@
 import React from "react";
+import { useState } from "react";
 
-class AddContact extends React.Component {
-  state = {
-    name: "",
-    email: "",
-    contactnumber: "",
+const AddContact = (props) => {
+  const [state,setState]=useState({
+    track: "",
+    genre: "",
+    author: "",
     link: "https://",
-  };
-
-  add = (e) => {
+  });
+  const fun=(e)=>{
     e.preventDefault();
-    if (this.state.name === "") {
-      alert("Name is mandatory!");
-      return;
+    if (state.track === "") {
+        alert("Name is mandatory!");
+        return;
     }
-    if (this.state.email === "") {
-      alert("Email is mandatory!");
-      return;
+    if (state.genre === "") {
+        alert("genre is mandatory!");
+        return;
     }
-    if (this.state.contactnumber === "") {
-      alert("Contact Number is mandatory!");
-      return;
+    if (state.author === "") {
+        alert("Contact Number is mandatory!");
+        return;
     }
-    this.props.addContactHandler(this.state);
-    this.setState({ name: "", email: "", contactnumber: "", link: "https://" });
-  };
-
-  render() {
-    return (
-      <div className="ui main">
-        <h2>Publish Audio</h2>
-        <form className="ui form" onSubmit={this.add}>
-          <div className="field">
-            <label>Track Title</label>
-            <input
+    props.addContactHandler(state);
+    console.log(state);
+    setState({ track: "", genre: "", author: "", link: "https://" });
+  }
+  
+  return(
+    <div className="ui main">
+         <h2>Publish Audio</h2>
+         <form className="ui form" >
+           <div className="field">
+             <label>Track Title</label>
+             <input
               type="text"
               name="name"
               placeholder="Track Title"
-              value={this.state.name}
-              onChange={(e) => this.setState({ name: e.target.value })}
+              value={state.track}
+              onChange={(e) => setState({ ...state,track: e.target.value })}
             />
           </div>
           <div className="field">
             <label>Genre</label>
             <input
               type="text"
-              name="contactnumber"
+              name="author"
               placeholder="Genre"
-              value={this.state.contactnumber}
-              onChange={(e) => this.setState({ contactnumber: e.target.value })}
+              value={state.author}
+              onChange={(e) => setState({  ...state,author: e.target.value })}
             />
           </div>
           <div className="field">
             <label>Artist/Author Name</label>
             <input
               type="text"
-              name="email"
+              name="genre"
               placeholder="Artist/Author Name"
-              value={this.state.email}
-              onChange={(e) => this.setState({ email: e.target.value })}
+              value={state.genre}
+              onChange={(e) => setState({ ...state, genre: e.target.value })}
             />
           </div>
           <div className="field">
@@ -67,15 +67,17 @@ class AddContact extends React.Component {
               type="text"
               name="link"
               placeholder="Link"
-              value={this.state.link}
-              onChange={(e) => this.setState({ link: e.target.value })}
+              value={state.link}
+              onChange={(e) => setState({  ...state,link: e.target.value })}
             />
           </div>
-          <button className="ui button blue">Add</button>
+          <button className="ui button blue" onClick={(e)=>{
+            fun(e);
+          }}>Add</button>
         </form>
       </div>
-    );
-  }
-}
+  )
+};
 
-export default AddContact;
+
+ export default AddContact;

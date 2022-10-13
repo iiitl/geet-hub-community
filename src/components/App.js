@@ -16,9 +16,9 @@ function App() {
       setContacts([...contacts, {id:id,...contact} ]);
       const msg=await axios.post('http://localhost:4000/addition',{
         id:id,
-        title:contact.name,
-        genre:contact.contactnumber,
-        author:contact.email,
+        title:contact.track,
+        genre:contact.genre,
+        author:contact.author,
         link:contact.link
       });
     }catch(err){

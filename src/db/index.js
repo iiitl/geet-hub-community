@@ -28,7 +28,7 @@ app.post('/addition',async (req,res)=>{
             link:req.body.link
            }}}
         ).exec();
-        
+        console.log(req.body.genre);
         return res.status(201).json({
             message:"successful"
         });
@@ -56,7 +56,7 @@ app.put('/deletion',async(req,res)=>{
 })
 app.get('/fetching',async(req,res)=>{
     try{
-        const all = await contract.find({"_id":"6343876fe3977026a9fd87bb"});
+        const all = await contract.find({"_id":"6347c386f41b37be4bfb24a4"});
         return res.status(201).json({
             all
         });
